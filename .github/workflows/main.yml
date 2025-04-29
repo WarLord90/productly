@@ -1,4 +1,4 @@
-name: Despliegue en hostinguer
+name: Despliegue en hostinger
 on:
   push:
     branches:
@@ -11,10 +11,10 @@ jobs:
       - name: pull codigo en VPS
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.SSH_HOST}}
-          username: ${{ secrets.SSH_USER}}
-          key: ${{ secrets.SSH_KEY}}
+          host: ${{secrets.SSH_HOST}}
+          username: ${{secrets.SSH_USER}}
+          key: ${{secrets.SSH_KEY}}
           script: |
                     cd /usr/local/lsws/Example/html/productly
-                    git fectch origin main 
+                    git fetch origin main 
                     git reset --hard origin/main
